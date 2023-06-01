@@ -10,6 +10,8 @@ public class DSEList implements List {
 	
 	public Node head;
 	private Node tail;
+	
+	private int size;
 
 	public DSEList() {
 		this.head = null;
@@ -114,6 +116,20 @@ public class DSEList implements List {
 		 */
 	//add String at parameter's index
 	public boolean add(int index, String obj) {
+		Node newNode = new Node(tail, head, obj);
+		
+		size++;
+		
+		if (index == 0) {
+			newNode.next = head;
+			head.prev = newNode;
+			head = newNode;
+			if (tail == null) {
+				tail = newNode;
+			}
+		}
+		
+		
 	}
 	
 	
