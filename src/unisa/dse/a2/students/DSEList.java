@@ -18,7 +18,7 @@ public class DSEList implements List {
 	}
 	public DSEList(Node head) {
 		this.head = head;
-		this.tail = tail;
+		//this.tail = tail;
 	}
 	
 	//Takes a list then adds each element into a new list
@@ -64,6 +64,15 @@ public class DSEList implements List {
 	 */
 	//checks if there is a list
 	public boolean isEmpty() {
+		if (size() == 0) {
+			return true;
+		}
+		if (contains()!= null) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
