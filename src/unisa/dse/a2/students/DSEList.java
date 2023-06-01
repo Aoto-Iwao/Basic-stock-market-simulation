@@ -72,6 +72,7 @@ public class DSEList implements List {
 	 */
 	//return the size of the list
 	public int size() {
+		return size;
 	}
 	
 	/**
