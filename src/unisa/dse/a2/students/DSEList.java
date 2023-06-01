@@ -67,12 +67,7 @@ public class DSEList implements List {
 		if (size() == 0) {
 			return true;
 		}
-		if (contains()!= null) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return false;
 	}
 
 	/**
