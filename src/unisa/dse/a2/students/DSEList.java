@@ -101,6 +101,7 @@ public class DSEList implements List {
 	 */
 	public boolean add(String obj) {
 		Node newNode = new Node(null, null, obj);
+		//Appends the specified element to the end of this list.
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
@@ -109,6 +110,11 @@ public class DSEList implements List {
 			tail.next = newNode;
 			newNode.prev = tail;
 			tail = newNode;
+		}
+		return true;
+		//@throws NullPointerException if the specified object is null
+		if (obj == null) {
+			throw new NullPointerException("Specified object is null");
 		}
 	}
 	
