@@ -100,6 +100,16 @@ public class DSEList implements List {
 	 * @throws NullPointerException if the specified object is null
 	 */
 	public boolean add(String obj) {
+		Node newNode = new Node(null, null, obj);
+		if (head == null) {
+			head = newNode;
+			tail = newNode;
+		}
+		else {
+			tail.next = newNode;
+			newNode.prev = tail;
+			tail = newNode;
+		}
 	}
 	
 	//add the parameter String at of the end of the list
@@ -116,7 +126,7 @@ public class DSEList implements List {
 		 */
 	//add String at parameter's index
 	public boolean add(int index, String obj) {
-		Node newNode = new Node(tail, head, obj);
+		Node newNode = new Node(null, null, obj);
 		
 		size++;
 		
