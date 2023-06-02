@@ -26,7 +26,15 @@ public class DSEList implements List {
 	}
 	
 	//Takes a list then adds each element into a new list
-	public DSEList(DSEList other) { // Copy constructor. 
+	public DSEList(DSEList other) {
+		// Copy constructor. 
+		this();
+		Node currentNode = other.head;
+		while(currentNode!= null) {
+			this.add(currentNode.getString());
+			currentNode = currentNode.next;
+		
+		}
 	}
 	
 	/**
