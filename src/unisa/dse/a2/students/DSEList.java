@@ -91,10 +91,6 @@ public class DSEList implements List {
 	//Take each element of the list a writes them to a string 
 	@Override
 	public String toString() {
-		if (head == null) {
-			return " ";
-			
-		}
 		
 		StringBuilder sBuilder =new StringBuilder();
 		
@@ -196,6 +192,27 @@ public class DSEList implements List {
 	 */
 	//removes the parameter's String form the list
 	public boolean remove(String obj) {
+		Node currentNode = head;
+		while (currentNode!= null) {
+			if (currentNode.getString().equals(obj)) {
+				if (currentNode.prev != null) {
+					currentNode.prev.next = currentNode.next;
+				} else {
+					head = currentNode.next;
+				}
+				
+				if (currentNode.next != null) {
+					currentNode.next.prev = currentNode.prev;
+				}
+				else {
+					tail = currentNode.prev;
+				}
+				size --;
+				return true;
+			}
+			currentNode = currentNode.next;
+		}
+		return false;
 	}
 	
 	/**

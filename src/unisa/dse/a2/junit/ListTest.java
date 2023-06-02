@@ -196,6 +196,7 @@ public class ListTest extends DSUnitTesting {
 		// Add a second time: adding to an empty list is different than adding to a non-empty list. 
 		l.add(new String(""+1));
 		s = l.toString();
+		System.out.println(s);
 		assertTrue("List didn't insert the specified String. List.add(String), or List.toString() is broken.", 
 				"0 1".equals(s));
 
@@ -344,6 +345,7 @@ public class ListTest extends DSUnitTesting {
 		list.add(new String(""+2));
 
 		assertTrue("List.remove() should return true when removing an existing object", list.remove(new String(""+1)));
+		System.out.println(list);
 		assertEquals("List.size() should decrement after a remove().", 2, list.size());
 		assertTrue("List.remove() should remove the given object", list.toString().equals("0 2"));
 	}
@@ -359,6 +361,7 @@ public class ListTest extends DSUnitTesting {
 		list.add(new String(""+1));
 
 		assertTrue("List.remove(String) should remove the first instance of the specified String.", list.remove(new String(""+1)));
+		System.out.println(list);
 		assertTrue("List.remove(String) should only remove one instance of the specified String!", list.toString().equals("0 2 1"));
 	}
 }
