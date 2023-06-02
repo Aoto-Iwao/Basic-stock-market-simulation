@@ -2,6 +2,8 @@ package unisa.dse.a2.junit;
 
 import static org.junit.Assert.*;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -183,7 +185,7 @@ public class ListTest extends DSUnitTesting {
 		Marks.getInstance().marks.put(ID+"Add", 3f);
 		
 		assertTrue("List returned false when trying to add an element.", l.add(new String(""+0)));
-
+		System.out.println(l);
 		String s = l.toString();
 		assertTrue("List didn't insert the specified String. " 
 				+ "List.add(String), or List.toString() is broken.", 
