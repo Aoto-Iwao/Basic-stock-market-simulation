@@ -1,5 +1,7 @@
 package unisa.dse.a2.students;
 
+import static org.junit.Assert.fail;
+
 import unisa.dse.a2.interfaces.List;
 
 /**
@@ -138,27 +140,27 @@ public class DSEList implements List {
 		
 		size++;
 		
+		//when index is the tail.
 		if (index == size) {
-			add(obj);
-		}
-		else {
-			Node currentNode = head;
-			for (int i = 0; i < index; i++)
+			return add(obj);
 			
 		}
-		if (index == 0) {
-			newNode.next = head;
-			head.prev = newNode;
-			head = newNode;
-			if (tail == null) {
-				tail = newNode;
+		else {
+			int i = 1;
+			Node tempNode = head.next;
+			while (i < index) {
+				tempNode = tempNode.next;
+				i++;
+		
 			}
+			newNode.next = tempNode;
+			newNode.prev = tempNode.prev;
+			tempNode.prev.next = newNode;
+			tempNode.prev = newNode;
+			
+			return true;
 		}
-		
-		
 	}
-	
-	
 	
 	/**
 	 * Returns true iff the given object is contained in the list. 
