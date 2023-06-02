@@ -125,6 +125,7 @@ public class DSEList implements List {
 			newNode.prev = tail;
 			tail = newNode;
 		}
+		size++;
 		return true;
 		//@throws NullPointerException if the specified object is null
 		
