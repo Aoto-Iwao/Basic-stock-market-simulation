@@ -110,13 +110,17 @@ public class DSEList implements List {
 	 */
 	//returns String at parameter's index
 	public String get(int index) {
+		if (index < 0|| index>= size) {
+			return null;
+			
 		int i = 1;
 		Node currentNode = head;
 		
-		while( i < index) {
+		while( i <= index) {
 			currentNode = currentNode.next;
 			i++;
 		}
+		
 		return currentNode.getString();
 	}
 	
