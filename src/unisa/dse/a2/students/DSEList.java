@@ -112,7 +112,7 @@ public class DSEList implements List {
 	public String get(int index) {
 		if (index < 0|| index>= size) {
 			return null;
-			
+		}
 		int i = 1;
 		Node currentNode = head;
 		
@@ -120,8 +120,10 @@ public class DSEList implements List {
 			currentNode = currentNode.next;
 			i++;
 		}
+
 		
 		return currentNode.getString();
+		
 	}
 	
 	
