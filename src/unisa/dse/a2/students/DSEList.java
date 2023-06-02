@@ -91,6 +91,26 @@ public class DSEList implements List {
 	//Take each element of the list a writes them to a string 
 	@Override
 	public String toString() {
+		if (head == null) {
+			return "[]";
+			
+		}
+		
+		StringBuilder sBuilder =new StringBuilder();
+		sBuilder.append("[");
+		
+		Node current = head;
+		while (current!= null) {
+			sBuilder.append(current);
+			current = current.next;
+			
+		}
+		return sBuilder.toString();
+		
+		
+	
+		
+		
 	}
 
 	
