@@ -64,10 +64,10 @@ public class DSEList implements List {
 		int currentIndex = 0;
 		
 		while (currentNode!= null) {
-			
-			String removeString = currentNode.getString();
-					
-					
+			if (currentIndex == index) {
+				String removeString = currentNode.getString();
+				
+				
 				if (currentNode.prev != null) {
 					currentNode.prev.next = currentNode.next;
 				} else {
@@ -85,8 +85,7 @@ public class DSEList implements List {
 			}
 			currentIndex++;
 			currentNode = currentNode.next;
-			
-		
+			}
 		return null;
 	}
 		
@@ -208,13 +207,23 @@ public class DSEList implements List {
 	public boolean add(int index, String obj) {
 		Node newNode = new Node(null, null, obj);
 		
-		size++;
 		
 		//when index is the tail.
 		if (index == size) {
 			return add(obj);
 			
 		}
+		if (index == 0) {
+	        if (head != null) { 
+	            newNode.next = head;
+	            head.prev = newNode;
+	        } else { 
+	            tail = newNode;
+	        }
+	        head = newNode; 
+	        return true;
+	    } 
+		
 		else {
 			int i = 1;
 			Node tempNode = head.next;
@@ -227,6 +236,7 @@ public class DSEList implements List {
 			newNode.prev = tempNode.prev;
 			tempNode.prev.next = newNode;
 			tempNode.prev = newNode;
+			size++;
 			
 			return true;
 		}
