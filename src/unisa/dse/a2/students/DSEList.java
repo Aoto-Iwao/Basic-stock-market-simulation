@@ -2,6 +2,8 @@ package unisa.dse.a2.students;
 
 import static org.junit.Assert.fail;
 
+import org.jcp.xml.dsig.internal.dom.DOMSubTreeData;
+
 import unisa.dse.a2.interfaces.List;
 
 /**
@@ -58,8 +60,38 @@ public class DSEList implements List {
 	 */
 	//remove the String at the parameter's index
 	public String remove(int index) {
+		Node currentNode = head;
+		int currentIndex = 0;
 		
+		while (currentNode!= null) {
+			
+			String removeString = currentNode.getString();
+					
+					
+				if (currentNode.prev != null) {
+					currentNode.prev.next = currentNode.next;
+				} else {
+					head = currentNode.next;
+				}
+				
+				if (currentNode.next != null) {
+					currentNode.next.prev = currentNode.prev;
+				}
+				else {
+					tail = currentNode.prev;
+				}
+				size --;
+				return removeString;
+			}
+			currentIndex++;
+			currentNode = currentNode.next;
+			
+		
+		return null;
 	}
+		
+		
+	
 	
 	/**
 	 * Returns the first index of the specified object, or -1 if the object does not exist
@@ -87,7 +119,6 @@ public class DSEList implements List {
 			i++;
 		}
 		return currentNode.getString();
-			
 	}
 	
 	
