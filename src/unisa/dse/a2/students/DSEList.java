@@ -36,7 +36,7 @@ public class DSEList implements List {
 	 */
 	//remove the String at the parameter's index
 	public String remove(int index) {
-
+		
 	}
 	
 	/**
@@ -100,9 +100,12 @@ public class DSEList implements List {
 	 * @throws NullPointerException if the specified object is null
 	 */
 	public boolean add(String obj) {
+		if (obj == null) {
+			throw new NullPointerException("Specified object is null");
+		}
 		Node newNode = new Node(null, null, obj);
 		//Appends the specified element to the end of this list.
-		if (head == null) {
+		if (isEmpty()) {
 			head = newNode;
 			tail = newNode;
 		}
@@ -113,9 +116,7 @@ public class DSEList implements List {
 		}
 		return true;
 		//@throws NullPointerException if the specified object is null
-		if (obj == null) {
-			throw new NullPointerException("Specified object is null");
-		}
+		
 	}
 	
 	//add the parameter String at of the end of the list
@@ -130,12 +131,21 @@ public class DSEList implements List {
 		 * @throws NullPointerException if the given object is null
 		 * @throws IndexOutOfBoundsException if the index is out of range
 		 */
+	
 	//add String at parameter's index
 	public boolean add(int index, String obj) {
 		Node newNode = new Node(null, null, obj);
 		
 		size++;
 		
+		if (index == size) {
+			add(obj);
+		}
+		else {
+			Node currentNode = head;
+			for (int i = 0; i < index; i++)
+			
+		}
 		if (index == 0) {
 			newNode.next = head;
 			head.prev = newNode;
