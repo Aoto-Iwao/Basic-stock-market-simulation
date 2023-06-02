@@ -235,7 +235,7 @@ public class ListTest extends DSUnitTesting {
 
 		l = new DSEList(chain3);
 		int s = l.size();
-		System.out.println("for size test"+ s);
+		//System.out.println("for size test"+ s);
 		assertEquals("List.size() should be working for this test", 3, s);
 		
 		// remember 0 indexing. 

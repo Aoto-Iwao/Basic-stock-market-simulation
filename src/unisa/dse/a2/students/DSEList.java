@@ -20,21 +20,33 @@ public class DSEList implements List {
 		this.tail = null;
 		
 	}
-	public DSEList(Node head) {
-		this.head = head;
+	
+	//Create a list with the given head node and calculate the size of the list.
+	public DSEList(Node head_) {
+		this.head = head_;
+		//tail is the head initially.
+		this.tail = head;
+		
+		int size = 0;
+		Node currentNode =head;
+		while (currentNode != null) {
+			size++;
+			if (currentNode.next!= null) {
+				this.tail = currentNode.next;
+			}
+			currentNode = currentNode.next;
+		}
+		this.size = size;
+		
 		//this.tail = tail;
 	}
 	
 	//Takes a list then adds each element into a new list
 	public DSEList(DSEList other) {
+		this.head = other.head;
+		this.tail = other.tail;
+		this.size = other.size;
 		// Copy constructor. 
-		this();
-		Node currentNode = other.head;
-		while(currentNode!= null) {
-			this.add(currentNode.getString());
-			currentNode = currentNode.next;
-		
-		}
 	}
 	
 	/**
@@ -67,6 +79,15 @@ public class DSEList implements List {
 	 */
 	//returns String at parameter's index
 	public String get(int index) {
+		int i = 1;
+		Node currentNode = head;
+		
+		while( i < index) {
+			currentNode = currentNode.next;
+			i++;
+		}
+		return currentNode.getString();
+			
 	}
 	
 	
