@@ -67,9 +67,9 @@ public class StockBroker {
 	 */
 	public boolean placeOrder(Trade order)
 	{
-		if (order!= null) {
+		if (order!= null && !pendingTrades.contains(order)) {
 			pendingTrades.add(order);
-			
+			//count++;
 			return true;
 			
 		}
@@ -82,10 +82,10 @@ public class StockBroker {
 	 */
 	public Trade getNextTrade()
 	{
-		
+		return pendingTrades.poll();
 	}
 	
-	private int count = 0;
+	//private int count = 0;
 	/**
 	 * @return Number of pending trades
 	 */

@@ -345,9 +345,12 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		if (this == other) {
 			return true;
 		}
-		else {
+		if (other == null)
 			return false;
-		}
+		if (getClass() != other.getClass())
+			return false;
+		else return false;
+		
 		
 	}
 	
