@@ -1,6 +1,7 @@
 package unisa.dse.a2.students;
 
 import java.util.PriorityQueue;
+import java.util.concurrent.CountDownLatch;
 
 public class StockBroker {
 
@@ -66,6 +67,13 @@ public class StockBroker {
 	 */
 	public boolean placeOrder(Trade order)
 	{
+		if (order!= null) {
+			pendingTrades.add(order);
+			count++;
+			return true;
+			
+		}
+		return false;
 	}
 	
 	/**
@@ -77,11 +85,14 @@ public class StockBroker {
 		
 	}
 	
+	private int count = 0;
 	/**
 	 * @return Number of pending trades
 	 */
 	public int getPendingTradeCount()
 	{
+		
+		return count;
 	}
 
 	/**
