@@ -1,5 +1,7 @@
 package unisa.dse.a2.students;
 
+import java.security.SecureRandom;
+
 public class ListedCompany {
 
 	/**
@@ -46,6 +48,8 @@ public class ListedCompany {
 	 */
 	public void processTrade(int quantity)
 	{
-		currentPrice 
+		int updateCurrentPrice = this.currentPrice + quantity/100;
+		this.currentPrice = updateCurrentPrice;
+		
 	}
 }
