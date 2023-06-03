@@ -54,7 +54,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 *	
 	 * @throws IndexOutOfBoundsException if the specified index is out of range
 	 */
-	public T remove(int index); {
+	public T remove(int index) {
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
@@ -63,7 +63,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		
 		while (currentNode!= null) {
 			if (currentIndex == index) {
-				String removeString = currentNode.getString();
+				String removeString = currentNode.get();
 				
 				
 				if (currentNode.prev != null) {
@@ -102,7 +102,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		NodeGeneric<T> currentNode = head;
 		int index = 0;
 		while (currentNode != null) {
-			if (currentNode.getString().equals(obj)) {
+			if (currentNode.get().equals(node)) {
 				return index;
 			}
 			currentNode = currentNode.next;
@@ -117,7 +117,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 * @param index The index to retrieve 
 	 * @return The object at the specified index, if it exists, and null if it does not exist
 	 */
-	public T get(int index); {
+	public T get(int index) {
 		if (index < 0|| index>= size) {
 			return null;
 		}
@@ -130,7 +130,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		}
 
 		
-		return currentNode.getString();
+		return currentNode.get();
 		
 	}
 
@@ -167,7 +167,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		
 		NodeGeneric<T> current = head;
 		while (current!= null) {
-			sBuilder.append(current.getString()).append(" ");
+			sBuilder.append(current.get()).append(" ");
 			current = current.next;	
 		}
 		return sBuilder.toString().trim();
@@ -181,7 +181,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 * 
 	 * @throws NullPointerException if the specified object is null
 	 */
-	public boolean add(T obj);{
+	public boolean add(T obj){
 		if (obj == null) {
 			throw new NullPointerException("Specified object is null");
 		}
@@ -245,7 +245,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		
 		else {
 			int i = 0;
-			Node tempNode = head;
+			NodeGeneric<T> tempNode = head;
 			while (i < index) {
 				tempNode = tempNode.next;
 				i++;
@@ -277,7 +277,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		NodeGeneric<T> currentNode = head;
 		int index = 0;
 		while (currentNode!= null) {
-			if(currentNode.getString().equals(obj)) {
+			if(currentNode.get().equals(obj)) {
 				return true;
 			}
 			currentNode = currentNode.next;
@@ -301,7 +301,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		
 		NodeGeneric<T> currentNode = head;
 		while (currentNode!= null) {
-			if (currentNode.getString().equals(obj)) {
+			if (currentNode.get().equals(obj)) {
 				if (currentNode.prev != null) {
 					currentNode.prev.next = currentNode.next;
 				} else {
