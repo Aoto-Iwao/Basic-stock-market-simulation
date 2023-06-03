@@ -63,7 +63,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		
 		while (currentNode!= null) {
 			if (currentIndex == index) {
-				String removeString = currentNode.get();
+				T removeString = currentNode.get();
 				
 				
 				if (currentNode.prev != null) {
@@ -185,7 +185,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		if (obj == null) {
 			throw new NullPointerException("Specified object is null");
 		}
-		NodeGeneric<T> newNode = new Node(null, null, obj);
+		NodeGeneric<T> newNode = new NodeGeneric<T>(null, null, obj);
 		//Appends the specified element to the end of this list.
 		if (isEmpty()) {
 			head = newNode;
@@ -223,7 +223,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		}
 		
 		
-		NodeGeneric<T> newNode = new Node(null, null, obj);
+		NodeGeneric<T> newNode = new NodeGeneric<T>(null, null, obj);
 		
 		
 		//when index is the tail.
