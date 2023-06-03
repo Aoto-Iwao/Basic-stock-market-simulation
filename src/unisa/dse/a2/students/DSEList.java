@@ -278,6 +278,15 @@ public class DSEList implements List {
 	 */
 	//searches list for parameter's String return true if found
 	public boolean contains(String obj) {
+		
+		Node currentNode = head;
+		while (currentNode!= null) {
+			if(currentNode.getString().equals(obj)) {
+				return true;
+			}
+			currentNode = currentNode.next;
+			
+		}
 	}
 
 	/**
