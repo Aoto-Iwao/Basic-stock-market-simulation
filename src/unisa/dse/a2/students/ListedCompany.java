@@ -7,8 +7,8 @@ public class ListedCompany {
 	 */
 	private String name;
 	
-	public void getName() {
-		this.name = name;
+	public String getName() {
+		return this.name;
 	}
 
 	/**
@@ -16,8 +16,8 @@ public class ListedCompany {
 	 */
 	private String code;
 	
-	public void getCode() {
-		this.code = code;
+	public String getCode() {
+		return this.code = code;
 	}
 
 	/**
@@ -25,8 +25,8 @@ public class ListedCompany {
 	 */
 	private int currentPrice;
 	
-	public void getCurrentPrice() {
-		this.currentPrice = currentPrice;
+	public int getCurrentPrice() {
+		return this.currentPrice;
 	}
 	
 	public ListedCompany(String code, String name, int currentPrice)
@@ -46,6 +46,6 @@ public class ListedCompany {
 	 */
 	public void processTrade(int quantity)
 	{
-		currentPrice = 
+		currentPrice 
 	}
 }
