@@ -109,6 +109,7 @@ public class DSEList implements List {
 			currentNode = currentNode.next;
 			index++;
 		}
+		return -1;
 		
 	}
 	
