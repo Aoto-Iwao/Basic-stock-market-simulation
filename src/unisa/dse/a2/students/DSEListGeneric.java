@@ -39,7 +39,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	}
 	
 	//Takes a list then adds each element into a new list
-	public DSEListGeneric(DSEListGene other) { // Copy constructor. 
+	public DSEListGeneric(DSEListGeneric<T> other) { // Copy constructor. 
 		this.head = other.head;
 		this.tail = other.tail;
 		this.size = other.size;
@@ -58,7 +58,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
-		Node currentNode = head;
+		NodeGeneric<T> currentNode = head;
 		int currentIndex = 0;
 		
 		while (currentNode!= null) {
@@ -89,7 +89,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		
 		
 
-	}
+	
 
 	//returns the index of the String parameter 
 	/**
@@ -99,7 +99,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 * @return The index of the specified node, or -1 if it is not contained in the list. 
 	 */
 	public int indexOf(T node) {
-		Node currentNode = head;
+		NodeGeneric<T> currentNode = head;
 		int index = 0;
 		while (currentNode != null) {
 			if (currentNode.getString().equals(obj)) {
@@ -122,7 +122,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 			return null;
 		}
 		int i = 0;
-		Node currentNode = head;
+		NodeGeneric<T> currentNode = head;
 		
 		while( i < index) {
 			currentNode = currentNode.next;
@@ -165,7 +165,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	public String toString() {
 		StringBuilder sBuilder =new StringBuilder();
 		
-		Node current = head;
+		NodeGeneric<T> current = head;
 		while (current!= null) {
 			sBuilder.append(current.getString()).append(" ");
 			current = current.next;	
@@ -185,7 +185,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		if (obj == null) {
 			throw new NullPointerException("Specified object is null");
 		}
-		Node newNode = new Node(null, null, obj);
+		NodeGeneric<T> newNode = new Node(null, null, obj);
 		//Appends the specified element to the end of this list.
 		if (isEmpty()) {
 			head = newNode;
@@ -213,7 +213,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 * @throws NullPointerException if the given object is null
 	 * @throws IndexOutOfBoundsException if the index is out of range
 	 */
-	public boolean add(int index, T obj);
+	public boolean add(int index, T obj) {
 	
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException("Index out of range");
@@ -223,7 +223,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		}
 		
 		
-		Node newNode = new Node(null, null, obj);
+		NodeGeneric<T> newNode = new Node(null, null, obj);
 		
 		
 		//when index is the tail.
@@ -269,12 +269,12 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 * 
 	 * @throws NullPointerException if the specified element is null
 	 */
-	public boolean contains(T obj);
+	public boolean contains(T obj) {
 	
 		if (obj == null) {
 			throw new NullPointerException();
 		}
-		Node currentNode = head;
+		NodeGeneric<T> currentNode = head;
 		int index = 0;
 		while (currentNode!= null) {
 			if(currentNode.getString().equals(obj)) {
@@ -294,12 +294,12 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 * 
 	 * @throws NullPointerException if the specified object is null
 	 */
-	public boolean remove(T obj);{
+	public boolean remove(T obj){
 		if (obj == null) {
 			throw new NullPointerException();
 		}
 		
-		Node currentNode = head;
+		NodeGeneric<T> currentNode = head;
 		while (currentNode!= null) {
 			if (currentNode.getString().equals(obj)) {
 				if (currentNode.prev != null) {
