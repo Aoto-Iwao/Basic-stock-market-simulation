@@ -13,6 +13,7 @@ public class SecuritiesExchange {
 	private String name;
 	
 	public String getName() {
+		return this.name;
 	}
 	
 	/**
@@ -36,6 +37,7 @@ public class SecuritiesExchange {
 	 */
 	public SecuritiesExchange(String name)
 	{
+		this.name = name;
 	}
 	
 	/**
@@ -45,6 +47,7 @@ public class SecuritiesExchange {
 	 */
 	public boolean addCompany(ListedCompany company)
 	{
+		ListedCompany.
 	}
 
 	/**

@@ -69,7 +69,7 @@ public class StockBroker {
 	{
 		if (order!= null) {
 			pendingTrades.add(order);
-			count++;
+			
 			return true;
 			
 		}
@@ -91,8 +91,7 @@ public class StockBroker {
 	 */
 	public int getPendingTradeCount()
 	{
-		
-		return count;
+		return pendingTrades.size();
 	}
 
 	/**
