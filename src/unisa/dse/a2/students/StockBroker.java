@@ -39,6 +39,8 @@ public class StockBroker {
 	 * @return
 	 */
 	public String getName() {
+		return this.name;
+		
 	}
 	
 	/**
@@ -47,6 +49,7 @@ public class StockBroker {
 	 */
 	public StockBroker(String name)
 	{
+		this.name = name;
 	}
 	
 	/**
