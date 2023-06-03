@@ -100,6 +100,16 @@ public class DSEList implements List {
 	 */
 	//returns the index of the String parameter 
 	public int indexOf(String obj) {
+		Node currentNode = head;
+		int index = 0;
+		while (currentNode != null) {
+			if (currentNode.getString().equals(obj)) {
+				return index;
+			}
+			currentNode = currentNode.next;
+			index++;
+		}
+		
 	}
 	
 	
@@ -113,10 +123,10 @@ public class DSEList implements List {
 		if (index < 0|| index>= size) {
 			return null;
 		}
-		int i = 1;
+		int i = 0;
 		Node currentNode = head;
 		
-		while( i <= index) {
+		while( i < index) {
 			currentNode = currentNode.next;
 			i++;
 		}
@@ -211,6 +221,15 @@ public class DSEList implements List {
 	
 	//add String at parameter's index
 	public boolean add(int index, String obj) {
+		
+		if (index < 0 || index > size) {
+			throw new IndexOutOfBoundsException("Index out of range");
+		}
+		if (obj == null) {
+			throw new NullPointerException("The specified object is null");
+		}
+		
+		
 		Node newNode = new Node(null, null, obj);
 		
 		
@@ -219,20 +238,21 @@ public class DSEList implements List {
 			return add(obj);
 			
 		}
-		if (index == 0) {
+		else if (index == 0) {
+			newNode.next = head;
 	        if (head != null) { 
-	            newNode.next = head;
+	            //newNode.next = head;
 	            head.prev = newNode;
 	        } else { 
 	            tail = newNode;
 	        }
 	        head = newNode; 
-	        return true;
+	        
 	    } 
 		
 		else {
-			int i = 1;
-			Node tempNode = head.next;
+			int i = 0;
+			Node tempNode = head;
 			while (i < index) {
 				tempNode = tempNode.next;
 				i++;
@@ -242,10 +262,9 @@ public class DSEList implements List {
 			newNode.prev = tempNode.prev;
 			tempNode.prev.next = newNode;
 			tempNode.prev = newNode;
-			size++;
-			
-			return true;
 		}
+		size++;
+		return true;
 	}
 	
 	/**
