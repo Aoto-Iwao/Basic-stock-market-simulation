@@ -30,6 +30,13 @@ public class StockBroker {
 	 */
 	public boolean addWatchlist(String companyCode)
 	{
+		if (companyCode!= null) {
+			watchList.add(companyCode);
+			return true;
+		}
+		return false;
+		
+		
 	}
 	
 	private String name;
@@ -67,6 +74,7 @@ public class StockBroker {
 	 */
 	public Trade getNextTrade()
 	{
+		
 	}
 	
 	/**
