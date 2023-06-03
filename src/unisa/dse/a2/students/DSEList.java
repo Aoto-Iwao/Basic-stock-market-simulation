@@ -2,8 +2,6 @@ package unisa.dse.a2.students;
 
 import static org.junit.Assert.fail;
 
-import org.jcp.xml.dsig.internal.dom.DOMSubTreeData;
-
 import unisa.dse.a2.interfaces.List;
 
 /**
@@ -60,6 +58,9 @@ public class DSEList implements List {
 	 */
 	//remove the String at the parameter's index
 	public String remove(int index) {
+		if (index < 0 || index > size) {
+			throw new IndexOutOfBoundsException();
+		}
 		Node currentNode = head;
 		int currentIndex = 0;
 		
@@ -302,6 +303,11 @@ public class DSEList implements List {
 	 */
 	//removes the parameter's String form the list
 	public boolean remove(String obj) {
+		
+		if (obj == null) {
+			throw new NullPointerException();
+		}
+		
 		Node currentNode = head;
 		while (currentNode!= null) {
 			if (currentNode.getString().equals(obj)) {
@@ -347,7 +353,14 @@ public class DSEList implements List {
 	 */
 	@Override
 	public boolean equals(Object other) {
-		return true;
+		if (this == other) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+		
 	}
 	
 }
