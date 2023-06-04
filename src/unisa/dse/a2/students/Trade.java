@@ -89,6 +89,15 @@ public class Trade implements Comparable<Trade> {
 		boolean watchList = this.getStockBroker().getWatchlist().contains(listedCompanyCode);
 		boolean tWatchlist = t.getStockBroker().getWatchlist().contains(listedCompanyCode);
 		
+		if (watchList && tWatchlist) {
+			return 0;
+		}
+		if (watchList && !tWatchlist) {
+			return 1;
+		}
+		if (!watchList && tWatchlist) {
+			return -1;
+		}
 		
 		
 		
