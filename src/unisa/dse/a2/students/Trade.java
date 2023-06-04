@@ -66,6 +66,9 @@ public class Trade implements Comparable<Trade> {
 	 */
 	public Trade(StockBroker broker, String listedCompanyCode, int shareQuantity)
 	{
+		this.broker = broker; // Add this line
+	    this.listedCompanyCode = listedCompanyCode; // Add this line
+	    this.shareQuantity = shareQuantity; // Add this line
 		created = System.nanoTime(); //do not change this
 		tradeId = System.nanoTime(); //do not change this
 		try { Thread.sleep(100); } catch (Exception x) {}
