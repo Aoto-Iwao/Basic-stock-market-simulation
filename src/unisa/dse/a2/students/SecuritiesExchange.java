@@ -47,6 +47,11 @@ public class SecuritiesExchange {
 	 */
 	public boolean addCompany(ListedCompany company)
 	{
+		//add companycode and its company.
+		companies.put(company.getCode(), company);
+		return true;
+		
+		
 	}
 
 	/**
