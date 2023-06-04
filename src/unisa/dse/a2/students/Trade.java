@@ -102,14 +102,14 @@ public class Trade implements Comparable<Trade> {
 			return -1;
 		}
 		//compare this and t (Long) with Long.compare()
-		else 
-		{
-			return Long.compare(this.created, t.created);
-		}
+		//if neither trade is on their broker's list, then compare the "created" field, 
+		//returning -1 if "this" is smaller, 0 if equal, or 1 if greater
+		return Long.compare(this.created, t.created);
 		
+			
+	
 		
-		
-		
+			
 		
 	}
 	
