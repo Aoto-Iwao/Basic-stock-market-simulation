@@ -90,7 +90,7 @@ public class Trade implements Comparable<Trade> {
 	public int compareTo(Trade t) {
 		//create a new list which call from StockBroker class.
 		boolean watchList = this.getStockBroker().getWatchlist().contains(listedCompanyCode);
-		boolean tWatchlist = t.getStockBroker().getWatchlist().contains(listedCompanyCode);
+		boolean tWatchlist = t.getStockBroker().getWatchlist().contains(t.listedCompanyCode);
 		
 		if (watchList && tWatchlist) {
 			return 0;
