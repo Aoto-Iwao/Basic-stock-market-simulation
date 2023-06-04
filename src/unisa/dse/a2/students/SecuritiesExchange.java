@@ -38,6 +38,9 @@ public class SecuritiesExchange {
 	public SecuritiesExchange(String name)
 	{
 		this.name = name;
+		this.brokers =
+		this.announcements = 
+		this.companies = new HashMap<String, ListedCompany>();
 	}
 	
 	/**
@@ -49,6 +52,7 @@ public class SecuritiesExchange {
 	{
 		//add companycode and its company.
 		companies.put(company.getCode(), company);
+		
 		return true;
 		
 		
