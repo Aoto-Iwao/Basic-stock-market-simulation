@@ -20,6 +20,7 @@ public class StockBroker {
 	 * should NOT change the list stored by this broker
 	 * @return
 	 */
+
 	public DSEListGeneric<String> getWatchlist() {
 		return new DSEListGeneric<String>(watchList);
 	}
@@ -79,6 +80,7 @@ public class StockBroker {
 	 * Gets, removes, and returns the next trade to process
 	 * @return Trade to process
 	 */
+	
 	public Trade getNextTrade()
 	{
 		return pendingTrades.poll();

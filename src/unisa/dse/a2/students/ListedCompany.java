@@ -19,7 +19,7 @@ public class ListedCompany {
 	private String code;
 	
 	public String getCode() {
-		return this.code = code;
+		return this.code;
 	}
 
 	/**

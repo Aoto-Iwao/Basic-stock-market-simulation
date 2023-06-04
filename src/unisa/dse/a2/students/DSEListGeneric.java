@@ -329,7 +329,13 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	 */
 	@Override
 	public int hashCode() {
-		return 0;
+	    int hash = 7;
+	    NodeGeneric<T> currentNode = head;
+	    while(currentNode != null){
+	        hash = 31 * hash + (currentNode.get() == null ? 0 : currentNode.get().hashCode());
+	        currentNode = currentNode.next;
+	    }
+	    return hash;
 	}
 
 	/**

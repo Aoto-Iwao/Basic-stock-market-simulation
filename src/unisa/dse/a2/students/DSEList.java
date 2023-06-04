@@ -20,7 +20,6 @@ public class DSEList implements List {
 	public DSEList() {
 		this.head = null;
 		this.tail = null;
-		
 	}
 	
 	//Create a list with the given head node and calculate the size of the list.
@@ -349,8 +348,7 @@ public class DSEList implements List {
 	        hash = 31 * hash + (currentNode.getString() == null ? 0 : currentNode.getString().hashCode());
 	        currentNode = currentNode.next;
 	    }
-	    return hash;
-		
+	    return hash;	
 	}
 		
 	
