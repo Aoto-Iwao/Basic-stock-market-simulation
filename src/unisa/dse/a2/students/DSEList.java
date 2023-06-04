@@ -2,6 +2,8 @@ package unisa.dse.a2.students;
 
 import static org.junit.Assert.fail;
 
+import java.security.cert.CRLReason;
+
 import unisa.dse.a2.interfaces.List;
 
 /**
@@ -58,6 +60,7 @@ public class DSEList implements List {
 	 */
 	//remove the String at the parameter's index
 	public String remove(int index) {
+		//IndexOutOfBoundsException if the specified index is out of range.
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
@@ -339,8 +342,17 @@ public class DSEList implements List {
 	 */
 	@Override
 	public int hashCode() {
-		return 0;
+		
+	    int hash = 7;
+	    Node currentNode = head;
+	    while(currentNode != null){
+	        hash = 31 * hash + (currentNode.getString() == null ? 0 : currentNode.getString().hashCode());
+	        currentNode = currentNode.next;
+	    }
+	    return hash;
+		
 	}
+		
 	
 	
 	/**

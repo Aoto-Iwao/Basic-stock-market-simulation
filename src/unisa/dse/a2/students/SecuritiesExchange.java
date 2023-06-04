@@ -47,7 +47,6 @@ public class SecuritiesExchange {
 	 */
 	public boolean addCompany(ListedCompany company)
 	{
-		ListedCompany.
 	}
 
 	/**

@@ -81,6 +81,8 @@ public class Trade implements Comparable<Trade> {
 	 */
 	public int compareTo(Trade t)
 	{
+		
+		
 	}
 	
 

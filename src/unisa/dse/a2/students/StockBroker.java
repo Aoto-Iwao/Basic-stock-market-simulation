@@ -31,9 +31,9 @@ public class StockBroker {
 	 */
 	public boolean addWatchlist(String companyCode)
 	{
-		if (companyCode!= null) {
-			watchList.add(companyCode);
-			return true;
+		if (companyCode!= null && !pendingTrades.contains(companyCode)) {
+			
+			return watchList.add(companyCode);
 		}
 		return false;
 		
@@ -69,7 +69,6 @@ public class StockBroker {
 	{
 		if (order!= null && !pendingTrades.contains(order)) {
 			pendingTrades.add(order);
-			//count++;
 			return true;
 			
 		}
