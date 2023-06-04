@@ -101,15 +101,7 @@ public class Trade implements Comparable<Trade> {
 		//compare this and t (Long) with Long.compare()
 		else 
 		{
-			Long.compare(this.created, t.created);
-			if (this.created< t.created) {
-				return 0;
-			}
-			if (this.created <= t.created ) {
-				return 1;
-			}
-			return -1;
-			
+			return Long.compare(this.created, t.created);
 		}
 		
 		

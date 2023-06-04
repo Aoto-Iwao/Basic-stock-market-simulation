@@ -35,7 +35,8 @@ public class StockBroker {
 	{
 		
 		if (companyCode!= null && !watchList.contains(companyCode)) {
-
+			
+			
 			return watchList.add(companyCode);
 		}
 		return false;
@@ -71,8 +72,9 @@ public class StockBroker {
 	public boolean placeOrder(Trade order)
 	{
 		if (order!= null && !pendingTrades.contains(order)) {
-			return pendingTrades.add(order);
-		
+			pendingTrades.add(order);
+			return true;
+			
 		}
 		return false;
 	}
