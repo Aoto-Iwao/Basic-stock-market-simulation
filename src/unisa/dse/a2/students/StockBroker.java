@@ -31,16 +31,18 @@ public class StockBroker {
 	 * @return true if added
 	 */
 	public boolean addWatchlist(String companyCode)
+	
 	{
-		if (companyCode!= null && !pendingTrades.contains(companyCode)) {
-			
+		
+		if (companyCode!= null && !watchList.contains(companyCode)) {
+
 			return watchList.add(companyCode);
 		}
 		return false;
 		
 		
 	}
-	
+
 	private String name;
 
 	/**
@@ -69,9 +71,8 @@ public class StockBroker {
 	public boolean placeOrder(Trade order)
 	{
 		if (order!= null && !pendingTrades.contains(order)) {
-			pendingTrades.add(order);
-			return true;
-			
+			return pendingTrades.add(order);
+		
 		}
 		return false;
 	}
