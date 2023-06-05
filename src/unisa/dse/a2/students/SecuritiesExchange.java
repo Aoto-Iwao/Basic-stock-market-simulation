@@ -68,6 +68,7 @@ public class SecuritiesExchange {
 	 */
 	public boolean addBroker(StockBroker broker)
 	{
+		//Adds the given broke to the list of brokers on the exchange by add method.
 		return this.brokers.add(broker);
 	}
 	
@@ -89,6 +90,9 @@ public class SecuritiesExchange {
 	 */
 	public int processTradeRound()
 	{
+		int indexCount = 0;
+		for (int i = 0; i < brokers.size(); i++ ) {
+		}
 	}
 	
 	public int runCommandLineExchange(Scanner sc)
