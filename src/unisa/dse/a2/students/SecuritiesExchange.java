@@ -110,7 +110,11 @@ public class SecuritiesExchange {
 				//If the exchange has three brokers, each with trades in their queue, 
 				//then three trades will processed, one from each broker.
 				
+				ListedCompany company = companies.get(trade.getCompanyCode());
 				int priceBeforeTrade = companies.get(trade.getCompanyCode()).getCurrentPrice();
+				company.processTrade(i);
+				// if trade is successful, increasing successfulTradeNumber.
+				successfulTradeNumber++;
 				
 				//"Trade: 100 DALL @ 99 via Honest Harry Broking"
 				//"Trade: QUANTITY COMPANY_CODE @ PRICE_BEFORE_TRADE via BROKERNAME", 
@@ -119,9 +123,9 @@ public class SecuritiesExchange {
 			
 				//create if statement.
 				//If the exchange has three brokers, each with trades in their queue, then three trades will processed, one from each broker.
+			
 				
-				// if trade is successful, increasing successfulTradeNumber.
-				successfulTradeNumber++;
+				
 			}
 		
 			
