@@ -90,7 +90,7 @@ public class SecuritiesExchange {
 	 */
 	public int processTradeRound()
 	{
-		int indexCount = 0;
+		int successfulTradeNumber = 0;
 		for (int i = 0; i < brokers.size(); i++ ) {
 			//get broker.
 			//get() takes an index.
@@ -100,14 +100,21 @@ public class SecuritiesExchange {
 			
 			// null check.
 			if (trade != null) {
+				//If the exchange has three brokers, each with trades in their queue, 
+				//then three trades will processed, one from each broker.
 				
 			}
 			//create if statement.
-			//If the exchange has three brokers
+			//If the exchange has three brokers, each with trades in their queue, then three trades will processed, one from each broker.
+			
+			// if trade is successful, increasing successfulTradeNumber.
+			successfulTradeNumber++;
+			
 		
 			
 			
 		}
+		return successfulTradeNumber;
 	}
 	
 	public int runCommandLineExchange(Scanner sc)
