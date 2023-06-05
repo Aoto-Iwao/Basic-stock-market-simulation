@@ -53,6 +53,12 @@ public class SecuritiesExchange {
 	 */
 	public boolean addCompany(ListedCompany company)
 	{
+		//false if it was not
+		if (companies.containsValue(company) || company == null) {
+			return  false;
+		}
+		
+		
 		//add companycode and its company.
 		companies.put(company.getCode(), company);
 		
