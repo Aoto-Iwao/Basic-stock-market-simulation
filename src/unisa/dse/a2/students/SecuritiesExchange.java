@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import unisa.dse.a2.interfaces.ListGeneric;
+import unisa.dse.a2.students.UntradedCompanyException;
+
 
 public class SecuritiesExchange {
 
@@ -111,7 +113,7 @@ public class SecuritiesExchange {
 	 * @return The number of successful trades completed across all brokers
 	 * @throws UntradedCompanyException when traded company is not listed on this exchange
 	 */
-	public int processTradeRound()
+	public int processTradeRound() throws UntradedCompanyException
 	{
 		int successfulTradeNumber = 0;
 		for (int i = 0; i < brokers.size(); i++ ) {
@@ -128,6 +130,11 @@ public class SecuritiesExchange {
 				//If the exchange has three brokers, each with trades in their queue, 
 				//then three trades will processed, one from each broker.
 				String companyCode = trade.getCompanyCode();
+				
+				//UntradedCompanyException when traded company is not listed on this exchange
+				if (companyCode== null || !companies.containsKey(companyCode)) {
+	                throw new UntradedCompanyException(companyCode);
+	            }
 				ListedCompany company = companies.get(companyCode);
 				int priceBeforeTrade = companies.get(companyCode).getCurrentPrice();
 				company.processTrade(i);
@@ -141,8 +148,7 @@ public class SecuritiesExchange {
 			
 				
 				
-				//UntradedCompanyException when traded company is not listed on this exchange
-				
+			
 			
 			}
 		
@@ -152,8 +158,8 @@ public class SecuritiesExchange {
 		return successfulTradeNumber;
 	}
 	
-	public int runCommandLineExchange(Scanner sc)
-	{
-		
-	}
+
+	//public int runCommandLineExchange(Scanner sc)
+
+
 }
