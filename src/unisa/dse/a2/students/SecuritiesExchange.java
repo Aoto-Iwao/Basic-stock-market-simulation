@@ -105,7 +105,7 @@ public class SecuritiesExchange {
 				//If the exchange has three brokers, each with trades in their queue, 
 				//then three trades will processed, one from each broker.
 				
-				int priceBeforeTrade = trade.getCompanyCode().getCurrentPrice() ;
+				int priceBeforeTrade = companies.get(trade.getCompanyCode()).getCurrentPrice();
 				
 				//"Trade: 100 DALL @ 99 via Honest Harry Broking"
 				//"Trade: QUANTITY COMPANY_CODE @ PRICE_BEFORE_TRADE via BROKERNAME", 
