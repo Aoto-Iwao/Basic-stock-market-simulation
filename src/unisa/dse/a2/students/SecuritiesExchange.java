@@ -110,6 +110,7 @@ public class SecuritiesExchange {
 				//"Trade: 100 DALL @ 99 via Honest Harry Broking"
 				//"Trade: QUANTITY COMPANY_CODE @ PRICE_BEFORE_TRADE via BROKERNAME", 
 				String announcementString = "Trade:" + companies.size() + " DALL @ " + priceBeforeTrade + " via " + broker.getName();
+				this.announcements.add(announcementString);
 			
 				//create if statement.
 				//If the exchange has three brokers, each with trades in their queue, then three trades will processed, one from each broker.
