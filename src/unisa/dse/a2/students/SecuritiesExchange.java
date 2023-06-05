@@ -92,6 +92,21 @@ public class SecuritiesExchange {
 	{
 		int indexCount = 0;
 		for (int i = 0; i < brokers.size(); i++ ) {
+			//get broker.
+			//get() takes an index.
+			StockBroker broker = brokers.get(i);
+			//Process the next trade provided by each broker.
+			Trade trade = broker.getNextTrade();
+			
+			// null check.
+			if (trade != null) {
+				
+			}
+			//create if statement.
+			//If the exchange has three brokers
+		
+			
+			
 		}
 	}
 	
