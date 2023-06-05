@@ -1,10 +1,10 @@
 package unisa.dse.a2.students;
 
 import java.util.HashMap;
-import java.util.Scanner;
+
 
 import unisa.dse.a2.interfaces.ListGeneric;
-import unisa.dse.a2.students.UntradedCompanyException;
+
 
 
 public class SecuritiesExchange {
@@ -136,20 +136,16 @@ public class SecuritiesExchange {
 	                throw new UntradedCompanyException(companyCode);
 	            }
 				ListedCompany company = companies.get(companyCode);
-				int priceBeforeTrade = companies.get(companyCode).getCurrentPrice();
+				int priceBeforeTrade = company.getCurrentPrice();
 				company.processTrade(i);
 				// if trade is successful, increasing successfulTradeNumber.
 				successfulTradeNumber++;
 				
 				//"Trade: 100 DALL @ 99 via Honest Harry Broking"
 				//"Trade: QUANTITY COMPANY_CODE @ PRICE_BEFORE_TRADE via BROKERNAME", 
-				String announcementString = "Trade:" + companies.size() + " DALL @ " + priceBeforeTrade + " via " + broker.getName();
+				String announcementString = "Trade: " + trade.getShareQuantity() + " " + trade.getCompanyCode() + " @ " + priceBeforeTrade + " via " + broker.getName();
+
 				this.announcements.add(announcementString);
-			
-				
-				
-			
-			
 			}
 		
 			

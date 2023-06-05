@@ -142,9 +142,9 @@ public class SecuritiesExchangeTest extends DSUnitTesting {
 		
 		assertEquals("PEAR price incorrect", 49, pear.getCurrentPrice());
 		
-		File text = new File("TestCommands.txt");
+		//File text = new File("TestCommands.txt");
 	     
-        Scanner sc = new Scanner(text);
+        //Scanner sc = new Scanner(text);
 		
 		//asx.runCommandLineExchange(sc);
 		
