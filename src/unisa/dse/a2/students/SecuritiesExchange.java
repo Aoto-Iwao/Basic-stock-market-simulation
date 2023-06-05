@@ -109,9 +109,9 @@ public class SecuritiesExchange {
 			if (trade != null) {
 				//If the exchange has three brokers, each with trades in their queue, 
 				//then three trades will processed, one from each broker.
-				
-				ListedCompany company = companies.get(trade.getCompanyCode());
-				int priceBeforeTrade = companies.get(trade.getCompanyCode()).getCurrentPrice();
+				String companyCode = trade.getCompanyCode();
+				ListedCompany company = companies.get(companyCode);
+				int priceBeforeTrade = companies.get(companyCode).getCurrentPrice();
 				company.processTrade(i);
 				// if trade is successful, increasing successfulTradeNumber.
 				successfulTradeNumber++;
@@ -121,11 +121,11 @@ public class SecuritiesExchange {
 				String announcementString = "Trade:" + companies.size() + " DALL @ " + priceBeforeTrade + " via " + broker.getName();
 				this.announcements.add(announcementString);
 			
-				//create if statement.
-				//If the exchange has three brokers, each with trades in their queue, then three trades will processed, one from each broker.
+				
+				
+				//UntradedCompanyException when traded company is not listed on this exchange
+				
 			
-				
-				
 			}
 		
 			
