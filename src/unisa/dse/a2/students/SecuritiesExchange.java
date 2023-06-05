@@ -54,7 +54,8 @@ public class SecuritiesExchange {
 	public boolean addCompany(ListedCompany company)
 	{
 		//false if it was not
-		if (companies.containsValue(company) || company == null) {
+		//if the code is already present in the companies map.
+		if (companies.containsKey(company.getCode()) || company == null) {
 			return  false;
 		}
 		//add companycode and its company.
