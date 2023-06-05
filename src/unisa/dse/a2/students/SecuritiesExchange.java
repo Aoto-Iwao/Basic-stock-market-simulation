@@ -99,17 +99,23 @@ public class SecuritiesExchange {
 			Trade trade = broker.getNextTrade();
 			
 			// null check.
+			//If a broker has no pending trades, that broker is skipped. 
+			//so if trade (broker.getNextTrade()) is null, the code inside of if statement will not work.
 			if (trade != null) {
 				//If the exchange has three brokers, each with trades in their queue, 
 				//then three trades will processed, one from each broker.
 				
+				
+				//"Trade: 100 DALL @ 99 via Honest Harry Broking"
+				//"Trade: QUANTITY COMPANY_CODE @ PRICE_BEFORE_TRADE via BROKERNAME", 
+				String announcementString = "Trade:" + companies.size() + " DALL @ " + priceBeforeTrade + " via " + broker.getName();
+			
+				//create if statement.
+				//If the exchange has three brokers, each with trades in their queue, then three trades will processed, one from each broker.
+				
+				// if trade is successful, increasing successfulTradeNumber.
+				successfulTradeNumber++;
 			}
-			//create if statement.
-			//If the exchange has three brokers, each with trades in their queue, then three trades will processed, one from each broker.
-			
-			// if trade is successful, increasing successfulTradeNumber.
-			successfulTradeNumber++;
-			
 		
 			
 			
