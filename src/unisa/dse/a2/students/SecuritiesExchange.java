@@ -53,6 +53,7 @@ public class SecuritiesExchange {
 	 */
 	public boolean addCompany(ListedCompany company)
 	{
+		//if company is null, return null.
 		if (company == null) {
 			return false;
 		}
@@ -75,10 +76,22 @@ public class SecuritiesExchange {
 	public boolean addBroker(StockBroker broker)
 	{
 		//Adds the given broke to the list of brokers on the exchange by add method.
-		if (broker != null) {
-			return this.brokers.add(broker);
+		if (broker == null) {
+			return false;
+			
 		}
-		return false;
+		
+		// for each loop is to check broker is already exist or not.
+		for(int i = 0; i < brokers.size(); i++){
+			
+			StockBroker existingBroker = brokers.get(i);
+			if(existingBroker.getName().equals(broker.getName())){
+				// If broker already exists, return false.
+				return false;
+				
+			}
+		}
+		return this.brokers.add(broker);
 	
 	}
 	
