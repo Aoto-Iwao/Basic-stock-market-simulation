@@ -35,11 +35,14 @@ public class SecuritiesExchange {
 	 * Initialises the exchange ready to handle brokers, announcements, and companies
 	 * @param name
 	 */
+	
+	//Initialises the exchange ready to handle brokers, 
+	//announcements, and companies
 	public SecuritiesExchange(String name)
 	{
 		this.name = name;
-		this.brokers =
-		this.announcements = 
+		this.brokers = new DSEListGeneric<StockBroker>();
+		this.announcements = new DSEListGeneric<String>();
 		this.companies = new HashMap<String, ListedCompany>();
 	}
 	
