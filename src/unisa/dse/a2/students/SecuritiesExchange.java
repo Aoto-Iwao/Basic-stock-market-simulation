@@ -57,22 +57,18 @@ public class SecuritiesExchange {
 		if (companies.containsValue(company) || company == null) {
 			return  false;
 		}
-		
-		
 		//add companycode and its company.
 		companies.put(company.getCode(), company);
-		
 		return true;
-		
-		
 	}
-
+	
 	/**
 	 * Adds the given broke to the list of brokers on the exchange
 	 * @param company
 	 */
 	public boolean addBroker(StockBroker broker)
 	{
+		return this.brokers.add(broker);
 	}
 	
 	/**
