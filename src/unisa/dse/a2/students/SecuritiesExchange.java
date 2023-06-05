@@ -69,7 +69,11 @@ public class SecuritiesExchange {
 	public boolean addBroker(StockBroker broker)
 	{
 		//Adds the given broke to the list of brokers on the exchange by add method.
-		return this.brokers.add(broker);
+		if (broker != null) {
+			return this.brokers.add(broker);
+		}
+		return false;
+	
 	}
 	
 	/**
