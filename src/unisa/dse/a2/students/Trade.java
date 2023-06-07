@@ -2,16 +2,11 @@ package unisa.dse.a2.students;
 
 public class Trade implements Comparable<Trade> {
 
-	/*
-	 * Don't modify the tradeID or created values, as they're used to simplify the tests
-	 * You may be required to use the "created" value in some parts of your code.
-	 */
+
 	private long tradeId = -1;
 	private long created;
 
-	/**
-	 * @return Track the moment in time this Trade was created
-	 */
+	
 	public long getCreated()
 	{
 		return this.created;
@@ -19,36 +14,23 @@ public class Trade implements Comparable<Trade> {
 	
 	public String listedCompanyCode;
 
-	/**
-	 * @return The company's code
-	 */
 	public String getCompanyCode() {
 		return this.listedCompanyCode;
 	}
 	
 	private int shareQuantity;
 
-	/**
-	 * @return The quantity of shares to trade
-	 */
+	//The quantity of shares to trade
 	public int getShareQuantity() {
 		return this.shareQuantity;
 	}
 
 	private StockBroker broker;
 
-	/**
-	 * @return The broker associated with this trade
-	 */
 	public StockBroker getStockBroker() {
 		return this.broker;
-		
 	}
-
-
-	/***
-	 * Do not modify this constructor, it is used for testing purposes only
-	 */
+	
 	public Trade(StockBroker broker, int id)
 	{
 		created = System.nanoTime(); //do not change this
@@ -56,14 +38,7 @@ public class Trade implements Comparable<Trade> {
 		try { Thread.sleep(100); } catch (Exception x) {}
 	}
 	
-	/***
-	 * Create a new trade with the associated broker, company, and share quantity
-	 * DO NOT change the current created and tradeId code
-	 * 
-	 * @param broker
-	 * @param listedCompanyCode
-	 * @param shareQuantity
-	 */
+	//Create a new trade with the associated broker, company, and share quantity.
 	public Trade(StockBroker broker, String listedCompanyCode, int shareQuantity)
 	{
 		this.broker = broker; // Add this line
@@ -74,19 +49,6 @@ public class Trade implements Comparable<Trade> {
 		try { Thread.sleep(100); } catch (Exception x) {}
 	}
 	
-	/**
-	 * Compares one trade to another trade
-	 * 
-	 * If we have two trades, A and B, and we examine the company in each trade:
-	 *  - if A and B are BOTH on their broker's watchlists, they are equal (return 0)
-	 *  - if A is on their brokers list, but B is not on B's brokers list (return 1)
-	 *  - if B is on their brokers list, but A is not on A's brokers list (return -1)
-	 *  - Otherwise, if neither trade is on their broker's list, then compare 
-	 *  		the "created" field, returning -1 if "this" is smaller, 0 if equal, 
-	 *  		or 1 if greater
-	 *  
-	 * @return The ordering priority of the trade
-	 */
 	public int compareTo(Trade t) {
 		//create a new list which call from StockBroker class.
 		boolean watchList = this.getStockBroker().getWatchlist().contains(listedCompanyCode);
@@ -104,28 +66,14 @@ public class Trade implements Comparable<Trade> {
 		//compare this and t (Long) with Long.compare()
 		//if neither trade is on their broker's list, then compare the "created" field, 
 		//returning -1 if "this" is smaller, 0 if equal, or 1 if greater
-		return Long.compare(this.created, t.created);
-		
-			
-	
-		
-			
-		
+		return Long.compare(this.created, t.created);	
 	}
 	
-	
-
-	/***
-	 * Do not modify this toString, it is used for testing purposes
-	 */
 	@Override
 	public String toString() {
 		return ""+tradeId;
 	}
 
-	/***
-	 * Do not modify this equals, it is used for testing purposes
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

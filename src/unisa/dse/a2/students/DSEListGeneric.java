@@ -90,35 +90,23 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	}
 		
 		
-
-	
-
 	//returns the index of the String parameter 
-	/**
-	 * Returns the first index of the specified object, or -1 if the object does not exist
-	 * in the list. 
-	 * @param node
-	 * @return The index of the specified node, or -1 if it is not contained in the list. 
-	 */
 	public int indexOf(T node) {
 		NodeGeneric<T> currentNode = head;
 		int index = 0;
 		while (currentNode != null) {
 			if (currentNode.get().equals(node)) {
+				//The index of the specified node
 				return index;
 			}
 			currentNode = currentNode.next;
 			index++;
 		}
+		// -1 if the object does not exist
 		return -1;
 	}
 	
 	//returns item at parameter's index
-	/**
-	 * Get the object at the specified index, if it exists. 
-	 * @param index The index to retrieve 
-	 * @return The object at the specified index, if it exists, and null if it does not exist
-	 */
 	public T get(int index) {
 		if (index < 0|| index>= size) {
 			return null;
@@ -137,10 +125,6 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	}
 
 	//checks if there is a list
-	/**
-	 * Returns true if this list contains no elements. 
-	 * @return True if the list is empty. 
-	 */
 	public boolean isEmpty() {
 		if (size() == 0) {
 			return true;
@@ -149,20 +133,11 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	}
 
 	//return the size of the list
-	/**
-	 * Returns the number of elements in this list. 
-	 * @return The number of elements in this list. 
-	 */
 	public int size() {
 		return size;
 	}
 	
 	//Take each element of the list a writes them to a string
-	/**
-	 * Returns a string containing the toString() 
-	 * 	for each object in this list. 
-	 * @return The concatenated toString() for each element in this list
-	 */
 	@Override
 	public String toString() {
 		StringBuilder sBuilder =new StringBuilder();
@@ -175,14 +150,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		return sBuilder.toString().trim();
 	}
 
-	//add the parameter item at of the end of the list
-	/**
-	 * Appends the specified element to the end of this list.
-	 * @param obj The object to add. 
-	 * @return True if the object has been added to the list. 
-	 * 
-	 * @throws NullPointerException if the specified object is null
-	 */
+	
 	public boolean add(T obj){
 		if (obj == null) {
 			throw new NullPointerException("Specified object is null");
@@ -204,17 +172,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		
 	}
 
-	/**
-	 * Inserts the specified element at the specified position in this list. 
-	 *  Shifts the element currently at that position (if any) and any subsequent 
-	 *  elements to the right (adds one to their indices).
-	 * @param index Index at which to add
-	 * @param obj The object to add
-	 * @return True if insertion was successful
-	 * 
-	 * @throws NullPointerException if the given object is null
-	 * @throws IndexOutOfBoundsException if the index is out of range
-	 */
+
 	public boolean add(int index, T obj) {
 	
 		if (index < 0 || index > size) {
@@ -264,15 +222,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		return true;
 	}
 
-	//searches list for parameter's String return true if found
-	/**
-	 * Returns true iff the given object is contained in the list. 
-	 * 
-	 * @param obj The object whose presence is to be tested
-	 * @return True if the list contains the given object
-	 * 
-	 * @throws NullPointerException if the specified element is null
-	 */
+
 	public boolean contains(T obj) {
 	
 		if (obj == null) {
@@ -290,14 +240,7 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		return false;
 	}
 
-	//removes the parameter's item form the list
-	/**
-	 * Remove the first instance of the given object from the list, if it exists
-	 * @param obj The object to remove
-	 * @return True if the object was removed 
-	 * 
-	 * @throws NullPointerException if the specified object is null
-	 */
+	
 	public boolean remove(T obj){
 		if (obj == null) {
 			throw new NullPointerException();
@@ -325,12 +268,8 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		}
 		return false;
 	}
-	/**
-	 * Returns the hashCode for this list. 
-	 * (This method must satisfy the constraint that if List l1.equals(List l2), 
-	 * 	then l1.hashCode() == l2.hashCode() must also be true. 
-	 * @return The hashCode of this list. 
-	 */
+
+	
 	@Override
 	public int hashCode() {
 	    int hash = 7;
@@ -342,14 +281,6 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	    return hash;
 	}
 
-	/**
-	 * Compares this list with the specified object for equality. 
-	 * The equality comparison must be value-based rather than the default 
-	 * 	(reference based). 
-	 * 
-	 * @param obj The object to compare against. 
-	 * @return True if the specified object is value-comparatively equal to this list
-	 */
 	@Override
 	public boolean equals(Object other) {
 		if (this == other) {

@@ -4,33 +4,28 @@ import java.security.SecureRandom;
 
 public class ListedCompany {
 
-	/**
-	 * The full name of the company
-	 */
+
 	private String name;
 	
 	public String getName() {
 		return this.name;
 	}
 
-	/**
-	 * The listing code of the company
-	 */
+
 	private String code;
 	
 	public String getCode() {
 		return this.code;
 	}
 
-	/**
-	 * Current price of the company after last trade
-	 */
+
 	private int currentPrice;
 	
 	public int getCurrentPrice() {
 		return this.currentPrice;
 	}
 	
+	//Create a new ListedCompany object.
 	public ListedCompany(String code, String name, int currentPrice)
 	{
 		this.code = code;
@@ -38,14 +33,9 @@ public class ListedCompany {
 		this.currentPrice = currentPrice;
 	}
 	
-	/**
-	 * Processing a trade should increase the current price of the company by 
-	 *    quantity / 100
-	 * A company's price CANNOT go below 1
-	 * 
-	 * @param quantity
-	 * @return the price after adjustment
-	 */
+	//It takes the volume of transactions (QUANTITY) as an argument and updates the current price of the company's shares 
+	//based on that volume. Specifically, the quantity of transactions divided by 100 is added to the current price. 
+	//However, if this result is less than 1, the price is set to 1. The updated price is then returned.
 	public int processTrade(int quantity)
 	{
 		int updateCurrentPrice = this.currentPrice + (quantity/100);

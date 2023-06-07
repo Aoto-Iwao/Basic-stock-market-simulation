@@ -5,102 +5,61 @@ import java.util.concurrent.CountDownLatch;
 
 public class StockBroker {
 
-	/**
-	 * List of pending trades to be completed. Must store a generic type.
-	 */
+	//List of pending transactions to be completed. Stores generic types.
 	private PriorityQueue<Trade> pendingTrades = new PriorityQueue<Trade>();
 	
-	/**
-	 * List of stocks this stock broker is "watching"
-	 */
+	//create watchList.
 	private DSEListGeneric<String> watchList = new DSEListGeneric<String>();
 
-	/**
-	 * returns a DEEP copy of the watchlist. Changes to the list returned from here
-	 * should NOT change the list stored by this broker
-	 * @return
-	 */
-
+	//Returns a DEEP copy of the watch list. Modify the returned list from here.
 	public DSEListGeneric<String> getWatchlist() {
 		return new DSEListGeneric<String>(watchList);
 	}
 	
-	/**
-	 * Adds the company code to the watchlist if it's not null and not already in there
-	 * @param companyCode
-	 * @return true if added
-	 */
+	//Add company code to watchlist. Returns true if added.
 	public boolean addWatchlist(String companyCode)
 	
 	{
-		
 		if (companyCode!= null && !watchList.contains(companyCode)) {
-			
-			
 			return watchList.add(companyCode);
 		}
 		return false;
-		
-		
 	}
 
 	private String name;
 
-	/**
-	 * Name of the stock brokerage firm
-	 * @return
-	 */
+	//get name.
 	public String getName() {
 		return this.name;
-		
 	}
 	
-	/**
-	 * Should store the broker's name and ensure the broker is setup ready to use
-	 * @param name
-	 */
+	//store the broker's name 
 	public StockBroker(String name)
 	{
 		this.name = name;
 	}
 	
-	/**
-	 * Adds the Trade to the pendingTrades list if it's not null and not already in there
-	 * @param companyCode
-	 * @return true if added
-	 */
+	//Adds the Trade to the pendingTrades list if it's not null and not already in there
 	public boolean placeOrder(Trade order)
 	{
 		if (order!= null && !pendingTrades.contains(order)) {
 			return pendingTrades.add(order);
-			
-			
 		}
 		return false;
 	}
 	
-	/**
-	 * Gets, removes, and returns the next trade to process
-	 * @return Trade to process
-	 */
-	
+	//Gets, removes, and returns the next trade to process
 	public Trade getNextTrade()
 	{
 		return pendingTrades.poll();
 	}
 	
-	//private int count = 0;
-	/**
-	 * @return Number of pending trades
-	 */
+	//get a number of pending trades.
 	public int getPendingTradeCount()
 	{
 		return pendingTrades.size();
 	}
 
-	/**
-	 * Do not modify this equals, it is used for testing purposes
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
