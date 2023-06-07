@@ -231,10 +231,10 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 			return add(obj);
 			
 		}
+		//if index == 0 and it's null, head and tail become newNode.
 		else if (index == 0) {
 			newNode.next = head;
 	        if (head != null) { 
-	            //newNode.next = head;
 	            head.prev = newNode;
 	        } else { 
 	            tail = newNode;
@@ -246,15 +246,17 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 		else {
 			int i = 0;
 			NodeGeneric<T> tempNode = head;
+			//identify the position of index
 			while (i < index) {
 				tempNode = tempNode.next;
 				i++;
 		
 			}
-			newNode.next = tempNode;
-			newNode.prev = tempNode.prev;
-			tempNode.prev.next = newNode;
-			tempNode.prev = newNode;
+			//once the desired position is reached, insert the new node
+			newNode.next = tempNode;// the new node's 'next' pointer points to the current (tempNode) node.
+			newNode.prev = tempNode.prev;// the new node's 'prev' pointer points to the node before the current node (tempNode).
+			tempNode.prev.next = newNode;// the previous node's 'next' pointer now points to the new node.
+			tempNode.prev = newNode;// the current node's 'prev' pointer now points to the new node.
 		}
 		size++;
 		return true;
