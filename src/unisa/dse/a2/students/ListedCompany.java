@@ -48,7 +48,7 @@ public class ListedCompany {
 	 */
 	public int processTrade(int quantity)
 	{
-		int updateCurrentPrice = this.currentPrice + quantity/100;
+		int updateCurrentPrice = this.currentPrice + (quantity/100);
 		this.currentPrice = updateCurrentPrice;
 		if (updateCurrentPrice< 1) {
 			this.currentPrice = 1;

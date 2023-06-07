@@ -137,9 +137,11 @@ public class SecuritiesExchange {
 	            }
 				ListedCompany company = companies.get(companyCode);
 				int priceBeforeTrade = company.getCurrentPrice();
-				company.processTrade(i);
+				company.processTrade(trade.getShareQuantity());
 				// if trade is successful, increasing successfulTradeNumber.
+			
 				successfulTradeNumber++;
+			
 				
 				//"Trade: 100 DALL @ 99 via Honest Harry Broking"
 				//"Trade: QUANTITY COMPANY_CODE @ PRICE_BEFORE_TRADE via BROKERNAME", 
