@@ -1,5 +1,11 @@
 package unisa.dse.a2.students;
 
+/**
+ * @author Aoto Iwao
+ * @studentID: 110355679
+ * @email: iwaay002@mymail.unisa.edu.au>
+ */
+
 public class Trade implements Comparable<Trade> {
 
 

@@ -5,7 +5,11 @@ import java.util.HashMap;
 
 import unisa.dse.a2.interfaces.ListGeneric;
 
-
+/**
+ * @author Aoto Iwao
+ * @studentID: 110355679
+ * @email: iwaay002@mymail.unisa.edu.au>
+ */
 
 public class SecuritiesExchange {
 

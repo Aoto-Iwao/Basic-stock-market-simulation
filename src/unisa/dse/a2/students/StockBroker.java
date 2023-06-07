@@ -3,6 +3,12 @@ package unisa.dse.a2.students;
 import java.util.PriorityQueue;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * @author Aoto Iwao
+ * @studentID: 110355679
+ * @email: iwaay002@mymail.unisa.edu.au>
+ */
+
 public class StockBroker {
 
 	//List of pending transactions to be completed. Stores generic types.
