@@ -40,42 +40,44 @@ public class DSEListGeneric<T> implements ListGeneric<T> {
 	
 	//Takes a list then adds each element into a new list
 	public DSEListGeneric(DSEListGeneric<T> other) { // Copy constructor. 
+		// Copy constructor. 
 		this.head = other.head;
 		this.tail = other.tail;
 		this.size = other.size;
-		// Copy constructor. 
+		
 	}
 
-	//remove and return the item at the parameter's index
-	/**
-	 * Remove the object at the specified index from the list, if it exists. 
-	 * @param index The index to remove
-	 * @return The object previously at the specified index
-	 *	
-	 * @throws IndexOutOfBoundsException if the specified index is out of range
-	 */
+	//Remove the object at the specified index from the list, if it exists. 
 	public T remove(int index) {
+		//if the specified index is out of range.
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
+		// Starting at the head of the list
 		NodeGeneric<T> currentNode = head;
-		int currentIndex = 0;
+		int currentIndex = 0; //set the Index
 		
+		// Iterate through the list until the desired index is reached.
 		while (currentNode!= null) {
 			if (currentIndex == index) {
 				T removeString = currentNode.get();
 				
-				
+				// Checking if there is a node before the current one
 				if (currentNode.prev != null) {
-					currentNode.prev.next = currentNode.next;
-				} else {
+					//if currentNode.prev exists, its next will be currentNode.next
+					currentNode.prev.next = currentNode.next;	
+				} 
+				// If currentNode.prev is null, removing the head of the list.
+				else {
 					head = currentNode.next;
 				}
-				
+				// Checking if there is a node after the current one
 				if (currentNode.next != null) {
+					//if currentNode.next exists, its prev will be currentNode.prev.
 					currentNode.next.prev = currentNode.prev;
 				}
 				else {
+					//current tail will delete so currentNode.prev will be a tail.
 					tail = currentNode.prev;
 				}
 				size --;
